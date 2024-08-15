@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "IVA Extension",
+  "description": "Расширение функционала IVA",
+  "author": "Andrey Nazarenko",
+
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "contextMenus",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "*://ivavks.rosatom.ru/v2/iva/*"
+  ],
+
+  "content_scripts": [
+    {
+      "js": [
+        "js/content.js"
+      ],
+      "matches": [
+        "*://ivavks.rosatom.ru/*"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+
+  "action": {
+    "default_popup": "html/popup.html",
+    "default_icon": {
+      "16": "/assets/logo16.png",
+      "32": "/assets/logo32.png",
+      "48": "/assets/logo48.png",
+      "128": "/assets/logo128.png"
+    }
+  },
+  "icons": {
+    "16": "/assets/logo16.png",
+    "32": "/assets/logo32.png",
+    "48": "/assets/logo48.png",
+    "128": "/assets/logo128.png"
+  }
+}
